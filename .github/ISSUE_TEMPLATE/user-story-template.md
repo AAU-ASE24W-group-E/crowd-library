@@ -21,7 +21,7 @@ projects: ["CrowdLibraryProject"]
 - [ ] Documentation is updated, if applicable.
 - [ ] Feature is deployed to the [environment name].
 
-** Affected (check if implemented): **
+**Affected - check if implemented:**
 - [ ] FE
 - [ ] BE - service xy (e.g. cl-book-service)
 
@@ -43,7 +43,7 @@ projects: ["CrowdLibraryProject"]
 - [ ] Documentation is updated with information on how to use the wishlist feature.
 - [ ] Feature is deployed to the production environment.
 
-** Affected (check if implemented): **
+**Affected - check if implemented:**
 - [ ] FE
 - [ ] BE - wishlist-service
 - [ ] BE - some-other-service
