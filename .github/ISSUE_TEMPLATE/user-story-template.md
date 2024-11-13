@@ -1,11 +1,3 @@
----
-name: User story template
-about: Create template for user story
-title: "[USERSTORY]"
-labels: userstory
-assignees: ''
-
----
 
 **As a [role],**
 **I want [an action or feature],**
@@ -20,6 +12,10 @@ assignees: ''
 - [ ] Necessary tests are written and pass.
 - [ ] Documentation is updated, if applicable.
 - [ ] Feature is deployed to the [environment name].
+
+** Affected (check if implemented): **
+- [ ] FE
+- [ ] BE - service xy (e.g. cl-book-service)
 
 ### Example User-Story (delete)
 **As a customer,**
@@ -38,3 +34,8 @@ assignees: ''
 - [ ] Automated tests for wishlist functionality pass.
 - [ ] Documentation is updated with information on how to use the wishlist feature.
 - [ ] Feature is deployed to the production environment.
+
+** Affected (check if implemented): **
+- [ ] FE
+- [ ] BE - wishlist-service
+- [ ] BE - some-other-service
