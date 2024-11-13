@@ -12,7 +12,7 @@
     - [x] Book
     - [x] Author
     - [x] User
-    - [x] BookOwnership
+    - [x] OwnBook
     - [x] Location
     - [ ] Lending
     - [ ] 
@@ -50,10 +50,10 @@ classDiagram
         ...
     }
 
-    class BookOwnership {
+    class OwnBook {
         UUID id
-        UUID userId
-        UUID bookId
+        User owner
+        Book book
         Bool lendable
         Bool giftable
         Bool exchangeable
