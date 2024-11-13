@@ -4,6 +4,7 @@ about: Create template for user story
 title: "[USERSTORY]"
 labels: userstory
 assignees: ''
+projects: ["CrowdLibraryProject"]
 ---
 
 **As a [role],**
