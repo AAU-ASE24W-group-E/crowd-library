@@ -1,3 +1,10 @@
+---
+name: User story template
+about: Create template for user story
+title: "[USERSTORY]"
+labels: userstory
+assignees: ''
+---
 
 **As a [role],**
 **I want [an action or feature],**
