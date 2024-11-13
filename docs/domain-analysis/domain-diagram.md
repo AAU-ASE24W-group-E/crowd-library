@@ -54,6 +54,9 @@ classDiagram
         UUID id
         UUID userId
         UUID bookId
+        Bool lendable
+        Bool giftable
+        Bool exchangeable
     }
 
     class Location {
