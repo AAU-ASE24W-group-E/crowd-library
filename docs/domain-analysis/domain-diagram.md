@@ -1,4 +1,4 @@
-# Domain Analysis Daigram
+# Domain Analysis Diagram
 
 ### Import notes:
 - book, author entity is _derived_ from ISBN API response
@@ -15,6 +15,7 @@
     - [x] OwnBook
     - [x] Location
     - [ ] Lending
+    - [ ] Wishlist
     - [ ] 
 - [ ] Add Connections
 
