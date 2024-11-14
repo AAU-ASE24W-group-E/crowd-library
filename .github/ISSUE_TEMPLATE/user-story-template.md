@@ -25,7 +25,8 @@ projects: ["CrowdLibraryProject"]
 - [ ] FE
 - [ ] BE - service xy (e.g. cl-book-service)
 
-### Example User-Story (delete)
+<!--
+### Example User-Story
 **As a customer,**
 **I want to be able to save my favorite products to a wishlist,**
 **So that I can easily find and purchase them later without searching.**
@@ -47,3 +48,4 @@ projects: ["CrowdLibraryProject"]
 - [ ] FE
 - [ ] BE - wishlist-service
 - [ ] BE - some-other-service
+-->
