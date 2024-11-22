@@ -58,6 +58,14 @@ classDiagram
         Bool lendable
         Bool giftable
         Bool exchangeable
+        BookStatus status 
+    }
+
+    class BookStatus {
+        lent
+        exchanged
+        gifted
+        inLibrary
     }
 
     class Location {
