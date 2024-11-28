@@ -50,7 +50,8 @@ classDiagram
         AUDIOBOOK
     }
 
-    note for BookFormat "Any Electronic, PDF, EPUB, etc is mapped to EBOOK; Any Audio, CD, MP3, etc is mapped to AUDIOBOOK"
+    note for BookFormat "Any Electronic, PDF, EPUB, etc is mapped to EBOOK"
+    note for BookFormat "Any Audio, CD, MP3, etc is mapped to AUDIOBOOK"
 
     class Author {
         UUID id
