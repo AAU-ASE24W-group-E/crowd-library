@@ -25,16 +25,29 @@
 
 ```mermaid
 classDiagram
+    Book --> BookFormat
+    Book o-- Author
+
+    OwnBook --> BookStatus 
+
     class Book {
         UUID id
         String title
         String isbn
-        String format
+        BookFormat format
         String language
         String publisher
         Int publishingYear
         String coverId
         Author[] authors
+    }
+
+    class BookFormat {
+        <<enumeration>>
+        HARDCOVER
+        PAPERBACK
+        EBOOK
+        AUDIOBOOK
     }
 
     class Author {
@@ -62,6 +75,7 @@ classDiagram
     }
 
     class BookStatus {
+        <<enumeration>>
         lent
         exchanged
         gifted
