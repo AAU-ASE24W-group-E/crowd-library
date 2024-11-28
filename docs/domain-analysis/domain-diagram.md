@@ -97,3 +97,4 @@ classDiagram
 ### Explainations
 - book coverId -> can used to get cover image -> example https://covers.openlibrary.org/b/olid/OL51694024M-L.jpg
 - Location -> WGS84 https://epsg.io/4326
+- Author.key -> unique alternative identified, case-insensitive, generated from author's name by reducing all forenames to initials and full surname.
