@@ -45,15 +45,18 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data
-#              subPath: postgresql-db
+              subPath: postgresql-db
             - name: init
               mountPath: /docker-entrypoint-initdb.d
 
       restartPolicy: Always
       volumes:
         - name: data
-          emptyDir:
-            sizeLimit: 1Gi
+          hostPath:
+            path: /tmp/k8s-data/postgres
+            type: DirectoryOrCreate
+#          emptyDir:
+#            sizeLimit: 1Gi
 #          persistentVolumeClaim:
 #            claimName: postgres-data
         - name: init
