@@ -25,7 +25,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
             - name: QUARKUS_DATASOURCE_URL
-              value: jdbc:postgresql://postgres:5432/crowd-library
+              value: jdbc:postgresql://postgres-db:5432/crowd-library
             - name: QUARKUS_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
