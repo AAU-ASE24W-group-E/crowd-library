@@ -45,20 +45,20 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data
-              subPath: postgresql-db
+              subPath: postgres-db
             - name: init
               mountPath: /docker-entrypoint-initdb.d
 
       restartPolicy: Always
       volumes:
         - name: data
-          hostPath:
-            path: /tmp/k8s-data/postgres
-            type: DirectoryOrCreate
+#          hostPath:
+#            path: /tmp/k8s-data/postgres
+#            type: DirectoryOrCreate
 #          emptyDir:
 #            sizeLimit: 1Gi
-#          persistentVolumeClaim:
-#            claimName: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-data
         - name: init
           configMap:
             name: postgres-db-init
@@ -93,16 +93,16 @@ spec:
       targetPort: 5432
   type: ClusterIP
 
-# TODO maybe add pvc
-#---
-#apiVersion: v1
-#kind: PersistentVolumeClaim
-#metadata:
-#  name: postgres-data
-#spec:
-#  accessModes:
-#    - ReadWriteOnce
-#  resources:
-#    requests:
-#      storage: {{.persistence.storage}}
-#  storageClassName:  {{.persistence.storageClassName}}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-data
+  namespace: cl
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: manual
