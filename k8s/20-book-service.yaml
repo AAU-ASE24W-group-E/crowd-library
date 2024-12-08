@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-service
+  namespace: cl
+  labels:
+    name: book-service
+spec:
+  selector:
+    matchLabels:
+      name: book-service
+  template:
+    metadata:
+      name: book-service
+      labels:
+        name: book-service
+      annotations:
+        prometheus.io/port: "8080"
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/q/metrics"
+    spec:
+      containers:
+        - name: book-service
+          image: ghcr.io/aau-ase24w-group-e/cl-book-service:1.0.0-SNAPSHOT
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: QUARKUS_DATASOURCE_URL
+              value: jdbc:postgresql://postgres:5432/crowd-library
+            - name: QUARKUS_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secret-credentials
+                  key: database-app-username
+            - name: QUARKUS_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-credentials
+                  key: database-app-password
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: "1"
+              memory: 256Mi
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: book-service
+  namespace: cl
+  labels:
+    name: book-service
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+  selector:
+    name: book-service
