@@ -4,4 +4,5 @@ metadata:
   name: local-storage
   namespace: cl
 provisioner: kubernetes.io/no-provisioner # indicates that this StorageClass does not support automatic provisioning
-volumeBindingMode: WaitForFirstConsumer
+#volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: Immediate

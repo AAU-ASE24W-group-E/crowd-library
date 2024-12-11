@@ -24,7 +24,7 @@ spec:
           image: ghcr.io/aau-ase24w-group-e/cl-book-service:1.0.0-SNAPSHOT
           imagePullPolicy: IfNotPresent
           env:
-            - name: QUARKUS_DATASOURCE_URL
+            - name: QUARKUS_DATASOURCE_JDBC_URL
               value: jdbc:postgresql://postgres-db:5432/crowd-library
             - name: QUARKUS_DATASOURCE_USERNAME
               valueFrom:
@@ -46,6 +46,17 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
+              name: http
+#          livenessProbe:
+#            httpGet:
+#              path: /q/health/live
+#              port: 8080
+#            initialDelaySeconds: 5
+#          readinessProbe:
+#            httpGet:
+#              path: /q/health/ready
+#              port: 8080
+#            initialDelaySeconds: 5
       restartPolicy: Always
 ---
 apiVersion: v1
@@ -58,7 +69,7 @@ metadata:
 spec:
   ports:
     - name: http
-      port: 80
+      port: 8080
       targetPort: 8080
   selector:
     name: book-service

@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres
+  name: postgres-db
   namespace: cl
   labels:
-    name: postgres
+    name: postgres-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: postgres
+      name: postgres-db
   template:
     metadata:
-      name: postgres
+      name: postgres-db
       labels:
-        name: postgres
+        name: postgres-db
     spec:
       containers:
-        - name: postgres
+        - name: postgres-db
           image: postgres:17-alpine
           imagePullPolicy: IfNotPresent
           env:

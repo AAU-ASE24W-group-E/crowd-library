@@ -1,0 +1,38 @@
+                          WARNING!!!!
+
+ This is a sandbox environment. Using personal credentials
+ is HIGHLY! discouraged. Any consequences of doing so, are
+ completely the user's responsibilites.
+
+ You can bootstrap a cluster as follows:
+
+ 1. Initializes cluster master node:
+
+ kubeadm init --apiserver-advertise-address $(hostname -i) --pod-network-cidr 10.5.0.0/16
+
+
+ 2. Initialize cluster networking:
+
+ kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
+
+
+ 3. (Optional) Create an nginx deployment:
+
+ kubectl apply -f https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/application/nginx-app.yaml
+
+
+                          The PWK team.
+
+---
+# init:
+kubeadm init --apiserver-advertise-address $(hostname -i) --pod-network-cidr 10.5.0.0/16
+
+# install network:
+kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
+
+# allow pods on master (single node):
+kubectl taint nodes --all node-role.kubernetes.io/control-plane-
+
+# deploy all from k8s folder:
+kubectl apply -f https://raw.githubusercontent.com/AAU-ASE24W-group-E/crowd-library/refs/heads/21-setup-cicd/k8s/00-namespace.yaml
+...
