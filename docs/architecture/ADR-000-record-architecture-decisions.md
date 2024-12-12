@@ -2,7 +2,7 @@
 
 ## Status
 [//]: # ( Proposed, Accepted, Deprecated, Superseded, etc.)
-Proposed (2024-11-06)
+Accepted
 
 ## Context
 [//]: # ( What is the issue that we're seeing that is motivating this decision or change?)
