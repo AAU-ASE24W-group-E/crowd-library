@@ -15,7 +15,11 @@ echo "Done."
 #popd
 cd ../minikube
 
-echo "Waiting for pods to be ready..."
+echo "Waiting for database to be ready..."
+kubectl -n cl wait --for=condition=Ready --timeout=30s pod -l name=postgres-db
+
+echo "Waiting for microservices to be ready..."
 kubectl -n cl wait --for=condition=Ready --timeout=30s pod -l name=book-service
 
+echo "Done."
 kubectl -n cl get pod,svc,ingress -o wide
