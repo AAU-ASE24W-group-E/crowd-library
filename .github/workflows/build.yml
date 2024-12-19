@@ -32,5 +32,4 @@ jobs:
           ./applystate.sh
       - name: Test API
         run: |
-          alias mcurl='curl --resolve "api.crowd-library.app:80:$(minikube ip)" -i'
-          mcurl -X PUT http://api.crowd-library.app/book/isbn/912396314X
+          curl --resolve "api.crowd-library.app:80:$(minikube ip)" -i -X PUT http://api.crowd-library.app/book/isbn/912396314X

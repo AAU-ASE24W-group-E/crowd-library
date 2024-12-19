@@ -17,3 +17,5 @@ cd ../minikube
 
 echo "Waiting for pods to be ready..."
 kubectl -n cl wait --for=condition=Ready --timeout=30s pod -l name=book-service
+
+kubectl -n cl get pod,svc,ingress -o wide
