@@ -2,7 +2,8 @@
 
 echo "Note: kubectl must be available, e.g. alias kubectl='minikube kubectl -- ' "
 
-pushd ../state
+#pushd ../state
+cd ../state
 
 for f in *.yaml; do
   echo "Applying $f..."
@@ -10,7 +11,9 @@ for f in *.yaml; do
 done
 
 echo "Done."
-popd
+
+#popd
+cd ../minikube
 
 echo "Waiting for pods to be ready..."
 kubectl -n cl wait --for=condition=Ready --timeout=30s pod -l name=book-service
