@@ -10,3 +10,8 @@ minikube start --cpus='4' --memory='4g' --disk-size='8g' \
 echo "Enabling addons..."
 minikube addons enable ingress
 minikube addons enable ingress-dns
+
+echo "Aliasing kubectl to minikube..."
+alias kubectl='minikube kubectl -- '
+
+kubectl get nodes

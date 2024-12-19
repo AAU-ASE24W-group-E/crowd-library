@@ -19,10 +19,19 @@ spec:
         prometheus.io/scrape: "true"
         prometheus.io/path: "/q/metrics"
     spec:
+      volumes:
+        - name: config
+          configMap:
+            name: book-service-config
       containers:
         - name: book-service
           image: ghcr.io/aau-ase24w-group-e/cl-book-service:1.0.0-SNAPSHOT
-          imagePullPolicy: IfNotPresent
+          # for snapshots use Always, for releases IfNotPresent can be used
+#          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: config
+              mountPath: /deployments/config
           env:
             - name: QUARKUS_DATASOURCE_JDBC_URL
               value: jdbc:postgresql://postgres-db:5432/crowd-library
@@ -73,3 +82,15 @@ spec:
       targetPort: 8080
   selector:
     name: book-service
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: book-service-config
+  namespace: cl
+data:
+  application.yaml: |-
+    quarkus:
+      http:
+        accessLog:
+          enabled: true
