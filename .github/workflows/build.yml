@@ -32,4 +32,4 @@ jobs:
           ./applystate.sh
       - name: Test API
         run: |
-          curl --resolve "api.crowd-library.app:80:$(minikube ip)" -i -X PUT http://api.crowd-library.app/book/isbn/912396314X
+          curl --resolve "crowd-library.app:80:$(minikube ip)" -i -X PUT http://crowd-library.app/book/isbn/912396314X
