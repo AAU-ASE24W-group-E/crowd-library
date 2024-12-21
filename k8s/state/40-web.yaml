@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crowd-library-web
+  namespace: cl
+  labels:
+    name: crowd-library-web
+spec:
+  selector:
+    matchLabels:
+      name: crowd-library-web
+  template:
+    metadata:
+      name: crowd-library-web
+      labels:
+        name: crowd-library-web
+    spec:
+      containers:
+        - name: crowd-library-web
+          image: ghcr.io/aau-ase24w-group-e/crowd-library-web:latest
+          # for snapshots use Always, for releases IfNotPresent can be used
+#          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: "1"
+              memory: 256Mi
+          ports:
+            - containerPort: 80
+              protocol: TCP
+              name: http
+#          livenessProbe:
+#            httpGet:
+#              path: /q/health/live
+#              port: 8080
+#            initialDelaySeconds: 5
+#          readinessProbe:
+#            httpGet:
+#              path: /q/health/ready
+#              port: 8080
+#            initialDelaySeconds: 5
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: crowd-library-web
+  namespace: cl
+  labels:
+    name: crowd-library-web
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    name: crowd-library-web
+
