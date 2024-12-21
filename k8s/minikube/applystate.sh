@@ -22,7 +22,7 @@ echo "Waiting for microservices to be ready..."
 kubectl -n cl wait --for=condition=Ready --timeout=30s pod -l name=book-service
 
 echo "Waiting for ingress to be ready..."
-kubectl -n cl wait --for=jsonpath='{.status.loadBalancer.ingress}' ingress/cl-api
+kubectl -n cl wait --for=jsonpath='{.status.loadBalancer.ingress}' --timeout=60s ingress/cl-api
 
 echo "Done."
 kubectl -n cl get pod,svc,ingress -o wide

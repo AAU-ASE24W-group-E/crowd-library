@@ -7,6 +7,9 @@ on:
       - '*-*'  # All feature branches created from the project issues, e.g. 1-create-book
   pull_request:
     types: [opened, synchronize, reopened]
+  paths-ignore:
+    - 'docs/*'
+
 jobs:
   test:
     name: Run integration tests
@@ -26,10 +29,19 @@ jobs:
           cpus: 4
           memory: 4g
           wait: all
+      - name: Show cluster info
+        run: |
+          kubectl cluster-info
+          kubectl get nodes
+          kubectl get pods --all-namespaces
+          kubectl get services --all-namespaces
+          kubectl get ingress --all-namespaces
       - name: Deploy cluster
         run: |
           cd k8s/minikube
           ./applystate.sh
       - name: Test API
         run: |
-          curl --resolve "crowd-library.app:80:$(minikube ip)" -i -X PUT http://crowd-library.app/book/isbn/912396314X
+          export MK_IP=$(minikube ip)
+          echo "Minikube IP: $MK_IP"
+          curl --resolve "crowd-library.app:80:$MK_IP" -i -X PUT http://crowd-library.app/book/isbn/912396314X
