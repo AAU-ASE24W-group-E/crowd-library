@@ -5,10 +5,10 @@ on:
     branches:
       - main
       - '*-*'  # All feature branches created from the project issues, e.g. 1-create-book
+    paths-ignore:
+      - 'docs/*'
   pull_request:
     types: [opened, synchronize, reopened]
-  paths-ignore:
-    - 'docs/*'
 
 jobs:
   test:
