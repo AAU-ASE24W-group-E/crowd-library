@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - '*-*'  # All feature branches created from the project issues, e.g. 1-create-book
+    paths-ignore:
+      - 'docs/*'
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    name: Run integration tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
+      - name: Start minikube
+        # see https://minikube.sigs.k8s.io/docs/tutorials/setup_minikube_in_github_actions/
+        uses: medyagh/setup-minikube@latest
+        with:
+          cache: false
+          driver: docker
+          addons: ingress
+          cpus: 4
+          memory: 4g
+          wait: all
+      - name: Show cluster info
+        run: |
+          kubectl cluster-info
+          kubectl get nodes
+          kubectl get pods --all-namespaces
+          kubectl get services --all-namespaces
+          kubectl get ingress --all-namespaces
+      - name: Deploy cluster
+        run: |
+          cd k8s/minikube
+          ./applystate.sh
+      - name: Test API
+        run: |
+          export MK_IP=$(minikube ip)
+          echo "Minikube IP: $MK_IP"
+          curl --resolve "crowd-library.app:80:$MK_IP" -i -X PUT http://crowd-library.app/book/isbn/912396314X
