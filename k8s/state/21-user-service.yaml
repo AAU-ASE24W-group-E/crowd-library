@@ -1,0 +1,96 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+  namespace: cl
+  labels:
+    name: user-service
+spec:
+  selector:
+    matchLabels:
+      name: user-service
+  template:
+    metadata:
+      name: user-service
+      labels:
+        name: user-service
+      annotations:
+        prometheus.io/port: "8080"
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/q/metrics"
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: user-service-config
+      containers:
+        - name: user-service
+          image: ghcr.io/aau-ase24w-group-e/cl-user-service:1.0.0-SNAPSHOT
+          # for snapshots use Always, for releases IfNotPresent can be used
+#          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: config
+              mountPath: /deployments/config
+          env:
+            - name: QUARKUS_DATASOURCE_JDBC_URL
+              value: jdbc:postgresql://postgres-db:5432/crowd-library
+            - name: QUARKUS_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secret-credentials
+                  key: database-app-username
+            - name: QUARKUS_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-credentials
+                  key: database-app-password
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: "1"
+              memory: 256Mi
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+              name: http
+#          livenessProbe:
+#            httpGet:
+#              path: /q/health/live
+#              port: 8080
+#            initialDelaySeconds: 5
+#          readinessProbe:
+#            httpGet:
+#              path: /q/health/ready
+#              port: 8080
+#            initialDelaySeconds: 5
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+  namespace: cl
+  labels:
+    name: user-service
+spec:
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  selector:
+    name: user-service
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-service-config
+  namespace: cl
+data:
+  application.yaml: |-
+    quarkus:
+      http:
+        accessLog:
+          enabled: true
