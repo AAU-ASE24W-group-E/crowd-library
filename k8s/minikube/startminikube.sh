@@ -13,7 +13,7 @@ DOCKER_MAX_MEMORY=${DOCKER_MAX_MEMORY:-4g}
 DOCKER_DISK_SIZE=${DOCKER_DISK_SIZE:-8g}
 DOCKER_PORTS=${DOCKER_PORTS:-80,8080,8443,5432}
 
-DATADIR="$(pwd)/tmp/k8s-data"
+DATADIR="//$(pwd)/tmp/k8s-data"
 echo "Mounting data directory: $DATADIR"
 mkdir -p $DATADIR
 

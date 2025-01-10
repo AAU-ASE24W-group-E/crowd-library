@@ -47,7 +47,8 @@ spec:
               mountPath: /var/lib/postgresql/data
               subPath: postgres-db
             - name: init
-              mountPath: /docker-entrypoint-initdb.d
+              mountPath: /docker-entrypoint-initdb.d/init-database.sql
+              subPath: init-database.sql
 
       restartPolicy: Always
       volumes:
@@ -68,10 +69,7 @@ data:
   # TODO find a way to use secret for password
   init-database.sql: |
     CREATE USER "crowd-library" WITH PASSWORD 'crowd-library';
-    CREATE DATABASE "crowd-library";
-    GRANT ALL PRIVILEGES ON DATABASE "crowd-library" TO "crowd-library";
-    ALTER DATABASE "crowd-library" OWNER TO "crowd-library";
-    CREATE EXTENSION postgis;
+    CREATE DATABASE "crowd-library" WITH template template_postgis owner "crowd-library";
 ---
 apiVersion: v1
 kind: Service
