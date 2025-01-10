@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: postgres-db
-          image: postgres:17-alpine
+          image: postgis/postgis:17-3.5-alpine
           imagePullPolicy: IfNotPresent
           env:
             - name: POSTGRES_USER
@@ -52,11 +52,6 @@ spec:
       restartPolicy: Always
       volumes:
         - name: data
-#          hostPath:
-#            path: /tmp/k8s-data/postgres
-#            type: DirectoryOrCreate
-#          emptyDir:
-#            sizeLimit: 1Gi
           persistentVolumeClaim:
             claimName: postgres-data
         - name: init
@@ -71,11 +66,12 @@ metadata:
   namespace: cl
 data:
   # TODO find a way to use secret for password
-  init-keycloak.sql: |
+  init-database.sql: |
     CREATE USER "crowd-library" WITH PASSWORD 'crowd-library';
     CREATE DATABASE "crowd-library";
     GRANT ALL PRIVILEGES ON DATABASE "crowd-library" TO "crowd-library";
     ALTER DATABASE "crowd-library" OWNER TO "crowd-library";
+    CREATE EXTENSION postgis;
 ---
 apiVersion: v1
 kind: Service

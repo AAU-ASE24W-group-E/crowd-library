@@ -35,3 +35,7 @@ pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
 release.properties
+
+/k8s/minikube/tmp/
+/k8s/minikube/.env
+.env
