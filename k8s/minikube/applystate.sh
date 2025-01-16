@@ -16,13 +16,13 @@ echo "Done."
 cd ../minikube
 
 echo "Waiting for database to be ready..."
-kubectl -n cl wait --for=condition=Ready --timeout=30s pod -l name=postgres-db
+kubectl -n cl wait --for=condition=Ready --timeout=60s pod -l name=postgres-db
 
 echo "Waiting for book service to be ready..."
-kubectl -n cl wait --for=condition=Ready --timeout=30s pod -l name=book-service
+kubectl -n cl wait --for=condition=Ready --timeout=10s pod -l name=book-service
 
 echo "Waiting for user service to be ready..."
-kubectl -n cl wait --for=condition=Ready --timeout=30s pod -l name=user-service
+kubectl -n cl wait --for=condition=Ready --timeout=10s pod -l name=user-service
 
 
 echo "Waiting for ingress to be ready..."

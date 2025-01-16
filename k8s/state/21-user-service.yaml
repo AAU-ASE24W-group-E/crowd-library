@@ -25,7 +25,7 @@ spec:
             name: user-service-config
       containers:
         - name: user-service
-          image: ghcr.io/aau-ase24w-group-e/cl-user-service:1.0.0-SNAPSHOT
+          image: ghcr.io/aau-ase24w-group-e/cl-user-service:1.1.0-SNAPSHOT
           # for snapshots use Always, for releases IfNotPresent can be used
 #          imagePullPolicy: IfNotPresent
           imagePullPolicy: Always
