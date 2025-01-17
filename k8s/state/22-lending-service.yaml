@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lending-service
+  namespace: cl
+  labels:
+    name: lending-service
+spec:
+  selector:
+    matchLabels:
+      name: lending-service
+  template:
+    metadata:
+      name: lending-service
+      labels:
+        name: lending-service
+      annotations:
+        prometheus.io/port: "8080"
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/q/metrics"
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: lending-service-config
+      containers:
+        - name: user-service
+          image: ghcr.io/aau-ase24w-group-e/cl-lending-service:1.0.0-SNAPSHOT
+          # for snapshots use Always, for releases IfNotPresent can be used
+#          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: config
+              mountPath: /deployments/config
+          env:
+            - name: QUARKUS_DATASOURCE_JDBC_URL
+              value: jdbc:postgresql://postgres-db:5432/crowd-library
+            - name: QUARKUS_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secret-credentials
+                  key: database-app-username
+            - name: QUARKUS_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-credentials
+                  key: database-app-password
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: "1"
+              memory: 256Mi
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+              name: http
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lending-service
+  namespace: cl
+  labels:
+    name: lending-service
+spec:
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  selector:
+    name: lending-service
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lending-service-config
+  namespace: cl
+data:
+  application.yaml: |-
+    quarkus:
+      http:
+        accessLog:
+          enabled: true
