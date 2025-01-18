@@ -22,6 +22,13 @@ spec:
                 name: crowd-library-web
                 port:
                   number: 80
+          - path: /available-book
+            pathType: Prefix
+            backend:
+              service:
+                name: book-service
+                port:
+                  number: 8080
           - path: "/book.*|/book-owner.*|/available-book.*"
             pathType: ImplementationSpecific
             backend:
