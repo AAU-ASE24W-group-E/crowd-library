@@ -43,3 +43,11 @@ spec:
                 name: user-service
                 port:
                   number: 8080
+          - path: /lendings
+            pathType: Prefix
+            backend:
+              service:
+                name: lending-service
+                port:
+                  number: 8080
+
