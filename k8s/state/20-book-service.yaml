@@ -45,13 +45,16 @@ spec:
                 secretKeyRef:
                   name: secret-credentials
                   key: database-app-password
+            - name: GC_CONTAINER_OPTIONS
+              value: "-XX:+UseG1GC"
+
           resources:
             requests:
-              cpu: 100m
-              memory: 128Mi
+              cpu: 500m
+              memory: 256Mi
             limits:
               cpu: "1"
-              memory: 256Mi
+              memory: 512Mi
           ports:
             - containerPort: 8080
               protocol: TCP
