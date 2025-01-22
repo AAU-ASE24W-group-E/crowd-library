@@ -1,0 +1,54 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: auto-deploy
+  namespace: cl
+spec:
+  schedule: "*/5 * * * *" #	Run every 5 minutes
+  concurrencyPolicy: Forbid
+  startingDeadlineSeconds: 300
+  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      parallelism: 1
+      activeDeadlineSeconds: 600
+      template:
+        spec:
+          serviceAccountName: auto-deploy
+          volumes:
+            - name: scripts
+              configMap:
+                name: auto-deploy-script
+                defaultMode: 0777
+          containers:
+            - name: auto-deploy
+              image: eclipsefdn/kubectl:1.18-alpine
+              imagePullPolicy: IfNotPresent
+              volumeMounts:
+                - mountPath: /opt/scripts
+                  name: scripts
+              command:
+                - /bin/sh
+                - -c
+                - /opt/scripts/auto-deploy.sh
+          restartPolicy: Never
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auto-deploy-script
+  namespace: cl
+data:
+  auto-deploy.sh: |-
+    #!/bin/bash -e
+    
+    echo "download the latest version of the application"
+    mkdir -p /tmp/auto-deploy
+    cd /tmp/auto-deploy
+    wget https://github.com/AAU-ASE24W-group-E/crowd-library/archive/refs/heads/main.zip
+    unzip main.zip
+    cd crowd-library-main/k8s/minikube
+    ./applystate.sh
+    echo "job done"

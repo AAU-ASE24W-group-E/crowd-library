@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - main
-      - '*-*'  # All feature branches created from the project issues, e.g. 1-create-book
+#      - '*-*'  # All feature branches created from the project issues, e.g. 1-create-book
     paths-ignore:
       - 'docs/*'
-  pull_request:
-    types: [opened, synchronize, reopened]
+#  pull_request:
+#    types: [opened, synchronize, reopened]
 
 jobs:
   test:
@@ -40,6 +40,7 @@ jobs:
         run: |
           cd k8s/minikube
           ./applystate.sh
+          ./awaitstartup.sh
       - name: Test API
         run: |
           export MK_IP=$(minikube ip)
