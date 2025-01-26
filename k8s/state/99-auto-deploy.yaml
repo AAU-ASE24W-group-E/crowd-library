@@ -42,7 +42,7 @@ metadata:
   namespace: cl
 data:
   auto-deploy.sh: |-
-    #!/bin/bash -e
+    #!/bin/bash
     
     echo "download the latest version of the application"
     mkdir -p /tmp/auto-deploy
