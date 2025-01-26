@@ -47,16 +47,13 @@ data:
     echo "download the latest version of the application"
     mkdir -p /tmp/auto-deploy
     cd /tmp/auto-deploy
-    #wget https://github.com/AAU-ASE24W-group-E/crowd-library/archive/refs/heads/main.zip
-    #unzip main.zip
     wget -O state.json "https://api.github.com/repos/AAU-ASE24W-group-E/crowd-library/contents/k8s/state?ref=main"
-    FILES=$(cat state.json | jq -r '.[].name' )
-    for FILE in $FILES; do
-      wget -O $FILE "https://raw.githubusercontent.com/AAU-ASE24W-group-E/crowd-library/main/k8s/state/$FILE"
-    done
-    # see crowd-library-main/k8s/minikube/applystate.sh 
-    for f in *.yaml; do
-      echo "Applying $f..."
-      kubectl apply -f $f
+    FILES=$(cat state.json | jq -r '.[].download_url' )
+    # see /k8s/minikube/applystate.sh
+    for f in $FILES; do
+      if [[ $f == "*.yaml" ]]; then
+        echo "Applying $f ..."
+        kubectl apply -f $f
+      fi
     done
     echo "job done"
