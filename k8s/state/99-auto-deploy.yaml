@@ -42,7 +42,7 @@ metadata:
   namespace: cl
 data:
   auto-deploy.sh: |-
-    #!/bin/bash
+    #!/bin/sh
     
     echo "download the latest version of the application"
     mkdir -p /tmp/auto-deploy
@@ -51,9 +51,15 @@ data:
     FILES=$(cat state.json | jq -r '.[].download_url' )
     # see /k8s/minikube/applystate.sh
     for f in $FILES; do
-      if [[ $f == "*.yaml" ]]; then
-        echo "Applying $f ..."
-        kubectl apply -f $f
-      fi
+      echo "Processing $f ..."
+      case $f in
+        *.yaml)
+          echo "Applying $f ..."
+          kubectl apply -f $f
+        ;;
+        *)
+          echo "Not a yaml -> skipping."
+        ;;
+      esac
     done
     echo "job done"
