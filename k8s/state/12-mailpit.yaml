@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mailpit
+  namespace: cl
+  labels:
+    name: mailpit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: mailpit
+  template:
+    metadata:
+      name: mailpit
+      labels:
+        name: mailpit
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: mailpit-config
+      containers:
+        - name: mailpit
+          image: axllent/mailpit:v1.22
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: config
+              mountPath: /config
+          env:
+            - name: MP_UI_AUTH_FILE
+              value: /config/authfile
+            - name: MP_WEBROOT
+              value: mailpit
+            - name: MP_SMTP_AUTH_ALLOW_INSECURE
+              value: "1"
+          ports:
+            - containerPort: 1025
+              protocol: TCP
+              name: smtp
+            - containerPort: 1110
+              protocol: TCP
+              name: pop3
+            - containerPort: 8025
+              protocol: TCP
+              name: web
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mailpit-config
+  namespace: cl
+data:
+  authfile: |-
+    admin:mailpit
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mailpit
+  namespace: cl
+  labels:
+    name: mailpit
+spec:
+    ports:
+      - name: smtp
+        port: 1025
+        targetPort: 1025
+      - name: pop3
+        port: 1110
+        targetPort: 1110
+      - name: web
+        port: 8025
+        targetPort: 8025
+    selector:
+        name: mailpit
