@@ -1,0 +1,285 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" version="26.0.6">
+  <diagram name="Page-1" id="GR6I2DHzP_kz5NdyWDSY">
+    <mxGraphModel dx="2051" dy="924" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-56" value="Client" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-100" y="290" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-29" value="Kubernetes" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="110" y="180" width="670" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7ow-hx_wO_PY_S5ooTom-1" target="7ow-hx_wO_PY_S5ooTom-11" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="480" />
+              <mxPoint x="560" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-59" value="JDBC" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-22" vertex="1" connectable="0">
+          <mxGeometry x="-0.8" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;jumpStyle=arc;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7ow-hx_wO_PY_S5ooTom-1" target="7ow-hx_wO_PY_S5ooTom-35" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="460" />
+              <mxPoint x="620" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-38" value="REST" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-37" vertex="1" connectable="0">
+          <mxGeometry x="0.8667" relative="1" as="geometry">
+            <mxPoint x="-42" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-1" value="«Service»&lt;div&gt;«Deployment»&lt;br&gt;&lt;b&gt;book-service&lt;/b&gt;&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="360" y="440" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-2" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="7ow-hx_wO_PY_S5ooTom-1" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;jumpStyle=arc;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="7ow-hx_wO_PY_S5ooTom-3" target="7ow-hx_wO_PY_S5ooTom-11" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="350" />
+              <mxPoint x="540" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-24" value="JDBC" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-21" vertex="1" connectable="0">
+          <mxGeometry x="0.025" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;jumpStyle=arc;" parent="1" source="7ow-hx_wO_PY_S5ooTom-3" target="7ow-hx_wO_PY_S5ooTom-13" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="380" />
+              <mxPoint x="580" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-60" value="kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-25" vertex="1" connectable="0">
+          <mxGeometry x="-0.82" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-3" value="«Service»&lt;div&gt;«Deployment»&lt;br&gt;&lt;b&gt;user-service&lt;/b&gt;&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="360" y="320" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-4" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="7ow-hx_wO_PY_S5ooTom-3" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="7ow-hx_wO_PY_S5ooTom-5" target="7ow-hx_wO_PY_S5ooTom-11" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="600" />
+              <mxPoint x="570" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-57" value="JDBC" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-23" vertex="1" connectable="0">
+          <mxGeometry x="-0.831" y="1" relative="1" as="geometry">
+            <mxPoint x="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="7ow-hx_wO_PY_S5ooTom-5" target="7ow-hx_wO_PY_S5ooTom-13" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="620" />
+              <mxPoint x="580" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-28" value="kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-26" vertex="1" connectable="0">
+          <mxGeometry x="-0.625" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-5" value="«Service»&lt;br&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;«&lt;/span&gt;Deployment»&lt;br&gt;&lt;b&gt;lending-service&lt;/b&gt;&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="360" y="560" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-6" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="7ow-hx_wO_PY_S5ooTom-5" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-7" value="«Service»&lt;div&gt;«Deployment»&lt;br&gt;&lt;b&gt;crowd-library-web&lt;/b&gt;&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="360" y="200" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-8" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="7ow-hx_wO_PY_S5ooTom-7" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.997;exitY=0.2;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="7ow-hx_wO_PY_S5ooTom-9" target="7ow-hx_wO_PY_S5ooTom-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-63" value="HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-16" vertex="1" connectable="0">
+          <mxGeometry x="-0.7962" y="1" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="7ow-hx_wO_PY_S5ooTom-9" target="7ow-hx_wO_PY_S5ooTom-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-61" value="REST" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-17" vertex="1" connectable="0">
+          <mxGeometry x="-0.0375" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7ow-hx_wO_PY_S5ooTom-9" target="7ow-hx_wO_PY_S5ooTom-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="370" />
+              <mxPoint x="320" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-62" value="REST" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-18" vertex="1" connectable="0">
+          <mxGeometry x="-0.4842" y="1" relative="1" as="geometry">
+            <mxPoint x="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="7ow-hx_wO_PY_S5ooTom-9" target="7ow-hx_wO_PY_S5ooTom-5" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="310" y="380" />
+              <mxPoint x="310" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-20" value="REST" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-19" vertex="1" connectable="0">
+          <mxGeometry x="-0.8375" relative="1" as="geometry">
+            <mxPoint x="-4" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-9" value="«Ingress»&lt;br&gt;&lt;b&gt;cl-gateway&lt;/b&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="120" y="320" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-10" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="7ow-hx_wO_PY_S5ooTom-9" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-11" value="«Service»&lt;div&gt;«Deployment»&lt;br&gt;&lt;b&gt;postgres-db&lt;/b&gt;&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="600" y="330" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-12" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="7ow-hx_wO_PY_S5ooTom-11" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;jumpStyle=arc;" parent="1" source="7ow-hx_wO_PY_S5ooTom-13" target="7ow-hx_wO_PY_S5ooTom-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="520" />
+              <mxPoint x="540" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-58" value="kafka" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-27" vertex="1" connectable="0">
+          <mxGeometry x="-0.45" relative="1" as="geometry">
+            <mxPoint x="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-13" value="«Service»&lt;div&gt;«StatefulSet»&lt;br&gt;&lt;b&gt;kafka&lt;/b&gt;&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="600" y="480" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-14" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="7ow-hx_wO_PY_S5ooTom-13" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="7ow-hx_wO_PY_S5ooTom-31" target="7ow-hx_wO_PY_S5ooTom-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-34" value="HTTP/&lt;div&gt;REST&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7ow-hx_wO_PY_S5ooTom-33" vertex="1" connectable="0">
+          <mxGeometry x="-0.025" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7MpsDEBM86oG8Z6DIqP-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="7ow-hx_wO_PY_S5ooTom-31" target="e7MpsDEBM86oG8Z6DIqP-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint y="440" />
+              <mxPoint y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7MpsDEBM86oG8Z6DIqP-4" value="HTTP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="e7MpsDEBM86oG8Z6DIqP-3">
+          <mxGeometry x="0.35" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-31" value="«webapp»&lt;div&gt;&lt;b&gt;crowd-library-web&lt;/b&gt;&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-90" y="320" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-32" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="7ow-hx_wO_PY_S5ooTom-31" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-35" value="«external service»&lt;br&gt;&lt;b&gt;openlibrary.org&lt;/b&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="920" y="420" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-36" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="7ow-hx_wO_PY_S5ooTom-35" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-43" value="HTTP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7ow-hx_wO_PY_S5ooTom-39" target="7ow-hx_wO_PY_S5ooTom-41" edge="1">
+          <mxGeometry x="0.25" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-39" value="«CronJob»&lt;div&gt;&lt;b&gt;auto-deploy&lt;/b&gt;&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="600" y="200" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-40" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="7ow-hx_wO_PY_S5ooTom-39" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-41" value="«external service»&lt;br&gt;&lt;b&gt;GitHub&lt;/b&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="920" y="200" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-42" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" parent="7ow-hx_wO_PY_S5ooTom-41" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="7ow-hx_wO_PY_S5ooTom-44" target="7ow-hx_wO_PY_S5ooTom-31" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-44" value="Reader" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-150" y="410" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="7ow-hx_wO_PY_S5ooTom-45" target="7ow-hx_wO_PY_S5ooTom-31" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-40" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7ow-hx_wO_PY_S5ooTom-45" value="Book Owner" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-150" y="230" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e7MpsDEBM86oG8Z6DIqP-1" value="«external service»&lt;br&gt;&lt;b&gt;OSM API&lt;/b&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-80" y="560" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e7MpsDEBM86oG8Z6DIqP-2" value="" style="shape=module;jettyWidth=8;jettyHeight=4;" vertex="1" parent="e7MpsDEBM86oG8Z6DIqP-1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-27" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
